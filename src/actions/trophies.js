@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { ASSIGN_TROPHY, TROPHY_SEEN, GET_USER_TROPHIES } from './types';
 
+const baseUrl = process.env.REACT_APP_BASEAPI_URL;
+
 // Get user trophies for display with modal at dashboard
 
 export const getUserTrophies = () => async (dispatch) => {
@@ -13,7 +15,7 @@ export const getUserTrophies = () => async (dispatch) => {
 			},
 		};
 
-		const res = await axios.get(`/api/trophies/user`, config);
+		const res = await axios.get(`${baseUrl}/api/trophies/user`, config);
 		if (res.status === 200) {
 			dispatch({
 				type: GET_USER_TROPHIES,
@@ -37,7 +39,10 @@ export const assignTrophy = (id) => async (dispatch) => {
 			},
 		};
 
-		const res = await axios.post(`/api/trophies/assign/${id}`, config);
+		const res = await axios.post(
+			`${baseUrl}/api/trophies/assign/${id}`,
+			config
+		);
 		if (res.status === 200) {
 			dispatch({
 				type: ASSIGN_TROPHY,
@@ -62,7 +67,10 @@ export const seenTrophy = (id) => async (dispatch) => {
 			},
 		};
 
-		const res = await axios.post(`/api/trophies/markAsSeen/${id}`, config);
+		const res = await axios.post(
+			`${baseUrl}/api/trophies/markAsSeen/${id}`,
+			config
+		);
 		if (res.status === 200) {
 			dispatch({
 				type: TROPHY_SEEN,
