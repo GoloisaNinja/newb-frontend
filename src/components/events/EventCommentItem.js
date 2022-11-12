@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import { deleteEventComment } from '../../actions/events';
-
+const baseUrl = process.env.REACT_APP_BASEAPI_URL;
 const EventCommentItem = ({
 	deleteEventComment,
 	comment,
@@ -15,7 +15,9 @@ const EventCommentItem = ({
 	useEffect(() => {
 		const checkAvatar = async () => {
 			try {
-				const res = await axios.get(`/api/user/${comment.user}/avatar`);
+				const res = await axios.get(
+					`${baseUrl}/api/user/${comment.user}/avatar`
+				);
 				if (res.status === 200) {
 					hasAvatar(true);
 				}
@@ -34,7 +36,7 @@ const EventCommentItem = ({
 						<img
 							className='post-avatar'
 							loading='lazy'
-							src={`/api/user/${comment.user}/avatar`}
+							src={`${baseUrl}/api/user/${comment.user}/avatar`}
 							alt='avatar'
 						/>
 					) : (

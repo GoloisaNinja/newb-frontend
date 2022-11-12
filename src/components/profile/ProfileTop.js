@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
+const baseUrl = process.env.REACT_APP_BASEAPI_URL;
 const ProfileTop = ({ auth: { user }, profile: { profile } }) => {
 	return (
 		<div className='profile-container'>
@@ -12,7 +12,7 @@ const ProfileTop = ({ auth: { user }, profile: { profile } }) => {
 						<div className='avatar-container' style={{ position: 'relative' }}>
 							<img
 								className='post-avatar-profile'
-								src={`/api/user/${user._id}/avatar`}
+								src={`${baseUrl}/api/user/${user._id}/avatar`}
 								loading='lazy'
 								alt='avatar'
 							/>

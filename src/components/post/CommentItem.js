@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import { deleteComment } from '../../actions/posts';
-
+const baseUrl = process.env.REACT_APP_BASEAPI_URL;
 const CommentItem = ({ deleteComment, comment, postId, auth: { user } }) => {
 	const [avatar, hasAvatar] = useState(false);
 
@@ -28,7 +28,7 @@ const CommentItem = ({ deleteComment, comment, postId, auth: { user } }) => {
 					{avatar ? (
 						<img
 							className='post-avatar'
-							src={`/api/user/${comment.user}/avatar`}
+							src={`${baseUrl}/api/user/${comment.user}/avatar`}
 							loading='lazy'
 							alt='avatar'
 						/>
