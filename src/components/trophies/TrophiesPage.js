@@ -3,7 +3,7 @@ import TrophyCard from './TrophyCard';
 import Spinner from '../Spinner';
 import Alert from '../Alert';
 import axios from 'axios';
-
+const baseUrl = process.env.REACT_APP_BASEAPI_URL;
 const TrophiesPage = () => {
 	const [trophies, setTrophies] = useState([]);
 	useEffect(() => {
@@ -14,7 +14,7 @@ const TrophiesPage = () => {
 				},
 			};
 			try {
-				const res = await axios.get(`/api/trophies/all`, config);
+				const res = await axios.get(`${baseUrl}/api/trophies/all`, config);
 				if (res.status === 200) {
 					setTrophies(res.data);
 				}
