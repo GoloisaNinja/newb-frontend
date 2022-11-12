@@ -1,0 +1,95 @@
+.event-img {
+  width: 300px;
+  height: 100%;
+}
+.edit-event-img {
+  width: 100%;
+  min-height: 230px;
+}
+.allevent-img {
+  @extend .event-img;
+  width: 100%;
+  min-height: 230px;
+}
+.event-title {
+  //border-bottom: 4px solid #cf0012;
+  margin-top: 1rem;
+  padding-top: 0;
+  padding-left: 2rem;
+}
+.event-text {
+  font-size: 1.25rem;
+  padding: 2rem;
+  font-weight: 300;
+  flex-grow: 1;
+}
+// All Events Page
+.event-grid-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 3rem;
+}
+.flex-container-event {
+  @extend .flex-container;
+  flex-direction: column;
+  border: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  justify-content: space-between;
+}
+// Event Registration form
+.event-regForm-textArea {
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+  width: 100%;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.6rem;
+
+  padding-left: 1rem;
+}
+.event-regForm-submit {
+  background: #ff0a0a;
+  border: none;
+  border-bottom: 2px solid darken(#ff0a0a, 15%);
+  color: #fff;
+  width: 100%;
+  margin-bottom: 1rem;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 1rem;
+  cursor: pointer;
+  transition: opacity 2s ease-in-out;
+
+  &:hover:not(:disabled) {
+    background: lighten(#ff0a0a, 10%);
+  }
+  &:disabled {
+    opacity: 55%;
+    cursor: default;
+  }
+  &-unreg {
+    @extend .event-regForm-submit;
+    background: #5d685c;
+    border-bottom: 2px solid darken(#5d685c, 15%);
+    &:hover:not(:disabled) {
+      background: lighten(#5d685c, 10%);
+    }
+  }
+}
+
+// Event Discussion Page
+.event-heading {
+  padding-left: 2rem;
+}
+
+@media (max-width: 45rem) {
+  .event-img {
+    width: 100%;
+    min-height: 230px;
+  }
+  .event-grid-main {
+    grid-template-columns: 1fr;
+  }
+}
