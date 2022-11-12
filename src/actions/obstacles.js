@@ -7,7 +7,7 @@ const baseUrl = process.env.REACT_APP_BASEAPI_URL;
 
 export const getObstacles = () => async (dispatch) => {
 	try {
-		const res = await axios.get(`${baseUrl}/api/obstacles/`);
+		const res = await axios.get(`${baseUrl}/api/obstacles`);
 		dispatch({
 			type: GET_OBSTACLES,
 			payload: res.data,
