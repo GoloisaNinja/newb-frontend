@@ -10,7 +10,9 @@ const CommentItem = ({ deleteComment, comment, postId, auth: { user } }) => {
 	useEffect(() => {
 		const checkAvatar = async () => {
 			try {
-				const res = await axios.get(`/api/user/${comment.user}/avatar`);
+				const res = await axios.get(
+					`${baseUrl}/api/user/${comment.user}/avatar`
+				);
 				if (res.status === 200) {
 					hasAvatar(true);
 				}
